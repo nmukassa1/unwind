@@ -39,7 +39,7 @@ function Cart({position, cartItems}) {
 
                         <div id="summary" className='flex items-center justify-between'>
                             <span id="basket__qty">{totalItems} {totalItems > 1 ? <>Items</> : <>Item</>}</span>
-                            <span id="total">£{basketTotal}</span>
+                            <span id="total">£{basketTotal.toFixed(2)}</span>
                         </div>
 
                         <button className='bg-black text-white w-full py-3 mt-[10px]'>Checkout</button>
