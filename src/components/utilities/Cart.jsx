@@ -1,4 +1,5 @@
 import {useEffect, useState} from 'react'
+import emptyCart from '../../empty-cart.png'
 
 function Cart({position, cartItems}) {
 
@@ -11,13 +12,10 @@ function Cart({position, cartItems}) {
         // console.log(basketTotal)
     }, [cartItems])
 
-    
-
-
 
     return ( 
         <div className={`bg-white fixed top-[50px] ${position} h-[370px] w-screen md:w-[370px] transition-all duration-700 z-50 shadow-lg p-3 overflow-hidden`}>
-            {cartItems.length === 0 && <div>Cart is empty</div>}
+            {cartItems.length === 0 && <div className='w-full h-full'><img src={emptyCart} alt="empty cart" className='object-cover w-full h-full'/></div>}
 
             {cartItems.length > 0 && (
                 <form action="" className='h-full'>
