@@ -18,6 +18,7 @@ function App() {
   
 
   const [cartItems, setCartItems] = useState([])
+  const [confirmAddToCart, setConfirmAddToCart] = useState('hidden')
 
   const addToCart = (product) => {
     const book = JSON.parse(localStorage.getItem('data'));
@@ -27,7 +28,7 @@ function App() {
     if(!exist){
       // Add to cart if doesn't exist
       setCartItems([...cartItems, {...book, qty: 1}])
-     
+      confirm()
     }else {
       //Update quantity if already in cart
       setCartItems(
@@ -35,8 +36,15 @@ function App() {
           item.key === bookKey ? {...exist, qty: exist.qty + 1 } : item
         )
       )
-      
+      confirm()
     }
+  }
+
+  function confirm(){
+    setConfirmAddToCart('inline-block')
+    setTimeout(() =>{
+        setConfirmAddToCart('hidden')
+    }, 1000)
   }
 
 
@@ -55,7 +63,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/view-all/:type/:id" element={<ViewAll />} />
-            <Route path="/book/:book" element={<Book onAdd={addToCart} />} />
+            <Route path="/book/:book" element={<Book onAdd={addToCart} confirm={confirmAddToCart} />} />
           </Routes>
         </main>
       </div>

@@ -1,8 +1,16 @@
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 
-function Book({onAdd}) {
+function Book({onAdd, confirm}) {
 
     const [synopsisHidden, setSynopsisHidden] = useState('h-[90px]')
+    // const [confirmAddToCart, setConfirmAddToCart] = useState('hidden')
+
+    // useEffect(() => {
+    //     setConfirmAddToCart('inline-block')
+    //     setTimeout(() =>{
+    //         setConfirmAddToCart('hidden')
+    //     }, 1000)
+    // }, [onAdd])
 
    
     const data = JSON.parse(localStorage.getItem('data'))
@@ -34,7 +42,12 @@ function Book({onAdd}) {
                     <span className='text-2xl'>£{data.price}</span>
                 </div>
 
-                {data.quantity > 0 && <button className="bg-black text-white px-3 py-2" onClick={onAdd}>Add To Cart</button>}
+                {data.quantity > 0 && 
+                    <>
+                        <button className="bg-black text-white px-3 py-2" onClick={onAdd}>Add To Cart</button> 
+                        <span className={`${confirm} ml-3`}>✅</span>
+                    </>
+                }
                 {data.quantity === 0 && <button disabled className="bg-black text-white px-3 py-2">Out Of Stock</button>}
 
                 <div id="synopsis" className='my-4'>
