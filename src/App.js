@@ -61,6 +61,7 @@ function App() {
         <Cart position={cartPosition} cartItems={cartItems}/>
         <main className='mt-[50px]'>
           <Routes>
+          load
             <Route path="/" element={<Home />} />
             <Route path="/view-all/:type/:id" element={<ViewAll />} />
             <Route path="/book/:book" element={<Book onAdd={addToCart} confirm={confirmAddToCart} />} />
