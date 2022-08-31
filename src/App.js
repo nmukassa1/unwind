@@ -7,14 +7,10 @@ import ViewAll from './components/pages/ViewAll';
 import Header from './components/utilities/Header';
 import Cart from './components/utilities/Cart';
 
-import useBookDatabase  from './useBookDatabase';
 
 
 
 function App() {
-
-  const {books} = useBookDatabase();
-  console.log(books)
 
   const [cartItems, setCartItems] = useState([])
   const [confirmAddToCart, setConfirmAddToCart] = useState('hidden')
@@ -60,7 +56,7 @@ function App() {
         <Cart position={cartPosition} cartItems={cartItems}/>
         <main className='mt-[50px]'>
           <Routes>
-            <Route path="/" element={<Home books={books} />} />
+            <Route path="/" element={<Home/>} />
             <Route path="/view-all/:type/:id" element={<ViewAll />} />
             <Route path="/book/:book" element={<Book onAdd={addToCart} confirm={confirmAddToCart} />} />
           </Routes>

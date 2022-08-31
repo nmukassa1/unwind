@@ -2,11 +2,11 @@ import Hero from '../utilities/Hero';
 import RenderCards from '../utilities/RenderCards';
 import useBookDatabase  from '../../useBookDatabase';
 
-function Home({books}) {
+function Home() {
 
    
 
-    // const {books} = useBookDatabase();
+    const {books} = useBookDatabase();
 
     return ( 
         <>
