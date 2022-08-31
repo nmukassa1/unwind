@@ -3,17 +3,10 @@ import {useState, useEffect} from 'react'
 function Book({onAdd, confirm}) {
 
     const [synopsisHidden, setSynopsisHidden] = useState('h-[90px]')
-    // const [confirmAddToCart, setConfirmAddToCart] = useState('hidden')
-
-    // useEffect(() => {
-    //     setConfirmAddToCart('inline-block')
-    //     setTimeout(() =>{
-    //         setConfirmAddToCart('hidden')
-    //     }, 1000)
-    // }, [onAdd])
 
    
     const data = JSON.parse(localStorage.getItem('data'))
+
     const synopsisToggle = () => {
         if(synopsisHidden === 'h-[90px]'){
             setSynopsisHidden('')
