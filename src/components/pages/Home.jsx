@@ -18,6 +18,7 @@ function Home({books}) {
                     <RenderCards data={books.non_fiction.genre.biography} title={'Biography'} page={"biography"} type={'non_fiction'} id={'biography-section'} />
                 </>
             )}
+            {!books && (<>No file</>)}
         </>
     );
 }
