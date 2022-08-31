@@ -44,7 +44,7 @@ function Book({onAdd, confirm}) {
 
                 {data.quantity > 0 && 
                     <>
-                        <button className="bg-black text-white px-3 py-2" onClick={onAdd}>Add To Cart</button> 
+                        <button className="bg-black text-white px-3 py-2 hover:bg-white hover:text-black hover:border-black hover:border" onClick={onAdd}>Add To Cart</button> 
                         <span className={`${confirm} ml-3`}>✅</span>
                     </>
                 }
