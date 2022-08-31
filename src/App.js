@@ -14,6 +14,7 @@ import useBookDatabase  from './useBookDatabase';
 function App() {
 
   const {books} = useBookDatabase();
+  console.log(books)
 
   const [cartItems, setCartItems] = useState([])
   const [confirmAddToCart, setConfirmAddToCart] = useState('hidden')
