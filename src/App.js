@@ -50,7 +50,7 @@ function App() {
   }
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <div className="App">
         <Header cartItems={cartItems} toggleCart={toggleCart}/>
         <Cart position={cartPosition} cartItems={cartItems}/>
@@ -62,7 +62,7 @@ function App() {
           </Routes>
         </main>
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
