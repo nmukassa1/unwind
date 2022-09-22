@@ -207,7 +207,7 @@ function useBookDatabase() {
                             "But he is haunted by memories of the beautiful girl he met there years before. A girl who stole his heart at the funfair, whose parents didn't approve, a girl he wrote to every day for a year.",
                             "When Allie Hamilton shows up on his doorstep, exactly as he has held her in his memory for all these years, Noah has one last chance to win her back. Only this time, it's not just her parents in the way - Allie is engaged and she's not a woman to go back on her promises."
                         ],
-                        mumber_of_pages: "272",
+                        number_of_pages: "272",
                         publisher: "Little, Brown Book Group",
                         dimension: "196 x 184 x 16 mm",
                         price: 8.99,
@@ -236,7 +236,7 @@ function useBookDatabase() {
                         synopsis: [
                             "It’s the mid-1980s; the place is the Italian Riviera. Elio – 17 years old, precocious, the son of an academic – finds himself falling for the older Oliver, a postdoctoral scholar completing his manuscript on Heraclitus at the beautiful home of Elio’s family. Oliver is worldly, handsome, a seductive contrast to Elio’s own naivety. Both are bright and questioning; the hook of desire is soon caught fast."
                         ],
-                        mumber_of_pages: "256",
+                        number_of_pages: "256",
                         publisher: "Atlantic Books",
                         dimension: "198 x 129 x 18 mm",
                         price: 8.99,
