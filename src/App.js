@@ -1,5 +1,5 @@
 import {BrowserRouter, Routes, Route, HashRouter} from 'react-router-dom'
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 import Book from './components/pages/Book';
 import Home from './components/pages/Home';
