@@ -50,10 +50,10 @@ function App() {
   }
 
   return (
-    <HashRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <div className="App">
         <Header cartItems={cartItems} toggleCart={toggleCart}/>
-        <Cart position={cartPosition} cartItems={cartItems}/>
+        <Cart position={cartPosition} cartItems={cartItems} setCartItems={setCartItems}/>
         <main className='mt-[50px]'>
           <Routes>
             <Route path="/" element={<Home/>} />
@@ -62,7 +62,7 @@ function App() {
           </Routes>
         </main>
       </div>
-    </HashRouter>
+    </BrowserRouter>
   );
 }
 

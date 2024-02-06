@@ -6,7 +6,8 @@ function Header({cartItems, toggleCart}) {
     const [totalItems, setTotalItems] = useState(0)
 
     useEffect(() => {
-        setTotalItems(cartItems.reduce((prev, current) => prev + current.qty, 0))
+        let filteredItemsAboveZero = cartItems.filter(item => item.qty > 0);
+        setTotalItems(filteredItemsAboveZero.reduce((prev, current) => prev + current.qty, 0))
         // console.log(basketTotal)
     }, [cartItems])
 
