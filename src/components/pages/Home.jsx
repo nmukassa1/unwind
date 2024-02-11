@@ -1,11 +1,11 @@
 import Hero from '../utilities/Hero';
 import RenderCards from '../utilities/RenderCards';
 import useBookDatabase  from '../../useBookDatabase';
+import useScrollToTop from '../utilities/useScrollToTop';
 
 function Home() {
-
-   
-
+    const {scrollToTop} = useScrollToTop()
+    scrollToTop()
     const {books} = useBookDatabase();
 
     return ( 

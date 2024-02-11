@@ -1,8 +1,11 @@
 import {useState, useEffect} from 'react'
+import useScrollToTop from '../utilities/useScrollToTop';
 
 function Book({onAdd, confirm}) {
 
     const [synopsisHidden, setSynopsisHidden] = useState('h-[90px]')
+    const {scrollToTop} = useScrollToTop()
+    scrollToTop()
 
    
     const data = JSON.parse(localStorage.getItem('data'))
