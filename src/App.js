@@ -1,4 +1,4 @@
-import {BrowserRouter, Routes, Route, HashRouter} from 'react-router-dom'
+import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import { useState } from 'react';
 
 import Book from './components/pages/Book';
@@ -6,14 +6,22 @@ import Home from './components/pages/Home';
 import ViewAll from './components/pages/ViewAll';
 import Header from './components/utilities/Header';
 import Cart from './components/utilities/Cart';
+import Checkout from './components/pages/Checkout';
 
 
 
 
 function App() {
 
+  
+
   const [cartItems, setCartItems] = useState([])
   const [confirmAddToCart, setConfirmAddToCart] = useState('hidden')
+  const [cartPosition, setCartPosition] = useState('right-[-100%]')
+
+  
+
+
 
   const addToCart = (product) => {
     const book = JSON.parse(localStorage.getItem('data'));
@@ -42,9 +50,6 @@ function App() {
     }, 1000)
   }
 
-
-  const [cartPosition, setCartPosition] = useState('right-[-100%]')
-
   const toggleCart = () => {
     cartPosition === 'right-[-100%]' ? setCartPosition('right-0') : setCartPosition('right-[-100%]');
   }
@@ -59,6 +64,7 @@ function App() {
             <Route path="/" element={<Home/>} />
             <Route path="/view-all/:type/:id" element={<ViewAll />} />
             <Route path="/book/:book" element={<Book onAdd={addToCart} confirm={confirmAddToCart} />} />
+            <Route path='/checkout' element={<Checkout cartItems={cartItems} setCartItems={setCartItems}/>}/>
           </Routes>
         </main>
       </div>

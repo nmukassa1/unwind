@@ -1,8 +1,9 @@
 import {useEffect, useState} from 'react'
 import emptyCart from '../../empty-cart.png'
+import RenderCartItems from './RenderCartItems';
+import {Link} from 'react-router-dom'
 
 function Cart({position, cartItems, setCartItems}) {
-
     const [basketTotalPrice, setBasketTotalPrice] = useState(0)
     const [totalItemsInBasket, setTotalItemsInBasket] = useState(0)
 
@@ -18,56 +19,15 @@ function Cart({position, cartItems, setCartItems}) {
 
     }, [cartItems])
 
-    const handleUpdateQuantity = (e) => {
-        const itemToUpdate = cartItems.find(item => item.key === parseInt(e.target.parentElement.parentElement.id))
-        
-        setCartItems(
-            cartItems.map((item) =>
-              item.key === itemToUpdate.key
-                ? { ...itemToUpdate, qty: parseInt(e.target.value) }
-                : item
-            )
-        );
-
-    }
-
-    const  handleRemoveItemFromBasket = (e) => {
-        const itemToRemove = parseInt(e.target.parentElement.parentElement.id);
-        const newBasket = cartItems.filter((item) => item.key != itemToRemove);
-        setCartItems([...newBasket]);
-        console.log(cartItems);
-      }
-
-
     return ( 
         <div className={`bg-white fixed top-[50px] ${position} h-[370px] w-screen md:w-[370px] transition-all duration-700 z-50 shadow-lg p-3 overflow-hidden`}>
             {cartItems.length === 0 && <div className='w-full h-full'><img src={emptyCart} alt="empty cart" className='object-cover w-full h-full'/></div>}
 
             {cartItems.length > 0 && (
                 <form action="" className='h-full' onSubmit={(e) => e.preventDefault()}>
-                        <div id="cart-items" className='h-[68%] overflow-scroll'>
-                            { cartItems.map((item, index) => (
-                                <div key={item.key} id={item.key} className="flex w-full justify-around items-center mb-2">
-                                    <img src={item.img} alt="" className='w-[90px] h-auto'/>
-                                    <div className="item__info w-1/2">
-                                        <span className='block'>{item.title}</span>
-                                        <span className='block'>£{item.price}</span>
-                                        <span className='block'>{item.author.join(' & ')}</span>
-                                    </div>
-                                    <div className='cart-items-qty-box flex flex-col items-center'>
-                                        <input 
-                                            type="number" 
-                                            className='border border-black w-[40px] h-[40px] text-center text-2xl font-thin' 
-                                            value={item.qty}
-                                            onChange={(e) => handleUpdateQuantity(e)}
-                                        />
-                                        <button 
-                                            className='remove-item text-xs mt-1.5 tracking-wider' 
-                                            onClick={(e) => handleRemoveItemFromBasket(e)}>remove</button>
-                                    </div>
-                                </div>
-                            )) }
-                        </div>
+                         <div className='h-[65%] overflow-scroll'>
+                            <RenderCartItems cartItems={cartItems} setCartItems={setCartItems} />
+                         </div>
 
                         <hr className='my-3 border-black' />
 
@@ -76,7 +36,8 @@ function Cart({position, cartItems, setCartItems}) {
                             <span id="total">£{basketTotalPrice.toFixed(2)}</span>
                         </div>
 
-                        <button className='bg-black text-white w-full py-3 mt-[10px]' type='submit'>Checkout</button>
+                        {/* <button className='bg-black text-white w-full py-3 mt-[10px]' type='submit'>Checkout</button> */}
+                        <Link className='block text-center bg-black text-white w-full py-3 mt-[10px]' to={'/checkout'}>Checkout</Link>
                 </form>
             )}
         </div>
