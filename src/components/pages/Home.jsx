@@ -3,10 +3,16 @@ import RenderCards from '../utilities/RenderCards';
 import useBookDatabase  from '../../useBookDatabase';
 import useScrollToTop from '../utilities/useScrollToTop';
 
+import {useLocation} from 'react-router-dom'
+
 function Home() {
     const {scrollToTop} = useScrollToTop()
     scrollToTop()
     const {books} = useBookDatabase();
+
+    const location = useLocation()
+
+    // console.log(location);
 
     return ( 
         <>

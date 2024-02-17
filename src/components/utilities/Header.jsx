@@ -22,7 +22,7 @@ function Header({cartItems, toggleCart}) {
             <div id="cart" className='ml-auto'>
                 <button onClick={toggleCart}>
                     <FontAwesomeIcon icon={faCartShopping} />
-                    <span> {totalItems}</span>
+                    <span className={totalItems !== 0 ? 'text-orange-500' : ''}> {totalItems > 10 ? '10+' : totalItems}</span>
                 </button>
             </div>
         </header>

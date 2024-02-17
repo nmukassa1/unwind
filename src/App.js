@@ -13,13 +13,10 @@ import Checkout from './components/pages/Checkout';
 
 function App() {
 
-  
 
   const [cartItems, setCartItems] = useState([])
   const [confirmAddToCart, setConfirmAddToCart] = useState('hidden')
   const [cartPosition, setCartPosition] = useState('right-[-100%]')
-
-  
 
 
 
